@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewable Energy Forecasting</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Energy Forecasting</h1>
+        <form id="predictForm">
+            <input type="number" id="temp" step="any" placeholder="Temperature (°C)" required>
+            <input type="number" id="humidity" step="any" placeholder="Humidity (%)" required>
+            <input type="number" id="wind" step="any" placeholder="Wind Speed (m/s)" required>
+            <button type="submit">Predict Usage</button>
+        </form>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
