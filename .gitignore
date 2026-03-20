@@ -1,0 +1,10 @@
+# Environments
+venv/
+.venv/
+
+# Database secrets
+.env
+
+# Python cache
+__pycache__/
+*.pyc
