@@ -14,6 +14,8 @@ db = client["energy_db"]
 collection = db["predictions"]
 
 model = EnergyPredictor()
+model.load_state_dict(torch.load('models/energy_model.pth', map_location='cpu'))
+model.eval()
 
 @app.route('/predict', methods=['POST'])
 def predict():
