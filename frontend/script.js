@@ -29,7 +29,7 @@ document.getElementById('predictForm').addEventListener('submit', async function
 
         // 4. Inject the beautiful result with the neon styling
         resultDiv.innerHTML = `
-            <div style="font-size: 0.9rem; opacity: 0.8;">Predicted Solar Generation:</div>
+            <div style="font-size: 0.9rem; opacity: 0.8;">Predicted Energy Usage:</div>
             <span class="prediction-value">${finalUsage.toFixed(2)} kWh</span>
         `;
 
