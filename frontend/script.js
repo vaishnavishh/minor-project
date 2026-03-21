@@ -17,5 +17,6 @@ document.getElementById('predictForm').addEventListener('submit', async function
     });
 
     const data = await response.json();
-    resultDiv.innerText = "Predicted Usage: " + data.predicted_usage.toFixed(2) + " kWh";
-});
+    let finalUsage = Math.max(0, data.predicted_usage); 
+    resultDiv.innerText = "Predicted Usage: " + finalUsage.toFixed(2) + " kWh";
+    });
