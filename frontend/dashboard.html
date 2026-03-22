@@ -3,40 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Energy Forecast Dashboard</title>
+    <title>NexEnergy | AI Workspace</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="status-bar">
-            <span class="status-dot"></span> SYSTEM LIVE: RENDER-API-v1.0
-        </div>
+    <div class="dashboard-layout">
         
-        <h1>Energy Forecast</h1>
+        <aside class="sidebar">
+            <div class="logo-area"><i class="fas fa-atom"></i> Nex<span>Energy</span></div>
+            <nav class="side-nav">
+                <a href="#" class="active"><i class="fas fa-bolt"></i> Forecast Model</a>
+                <a href="#"><i class="fas fa-database"></i> Training Logs</a>
+                <a href="#"><i class="fas fa-server"></i> API Endpoints</a>
+                <a href="#"><i class="fas fa-chart-pie"></i> Analytics</a>
+            </nav>
+            <div class="user-profile">
+                <div class="avatar"><i class="fas fa-user-astronaut"></i></div>
+                <div class="user-info">
+                    <span class="name">Admin User</span>
+                    <span class="role">Data Scientist</span>
+                </div>
+            </div>
+        </aside>
 
-        <form id="predictForm">
-            <div class="input-group">
-                <label><i class="fas fa-thermometer-half"></i> Temperature: <span id="tempVal">298</span>K</label>
-                <input type="range" id="temp" min="250" max="330" value="298" oninput="document.getElementById('tempVal').innerText=this.value">
+        <main class="main-content">
+            <header class="top-bar">
+                <h2>Workspace / Forecast Model</h2>
+                <div class="live-status"><i class="fas fa-circle status-dot"></i> Render API Online</div>
+            </header>
+
+            <div class="center-wrapper">
+                <div class="container">
+                    <h1>Input Parameters</h1>
+                    <form id="predictForm">
+                        <div class="input-group">
+                            <label><i class="fas fa-thermometer-half"></i> Temperature: <span id="tempVal">298</span>K</label>
+                            <input type="range" id="temp" min="250" max="330" value="298" oninput="document.getElementById('tempVal').innerText=this.value">
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fas fa-tint"></i> Humidity: <span id="humVal">50</span>%</label>
+                            <input type="range" id="humidity" min="0" max="100" value="50" oninput="document.getElementById('humVal').innerText=this.value">
+                        </div>
+                        <div class="input-group">
+                            <label><i class="fas fa-wind"></i> Wind Speed: <span id="windVal">5</span> m/s</label>
+                            <input type="range" id="wind" min="0" max="50" value="5" oninput="document.getElementById('windVal').innerText=this.value">
+                        </div>
+                        <button type="submit">GENERATE PREDICTION</button>
+                    </form>
+                    <div id="result"></div>
+                </div>
+            </div>
+        </main>
+
+        <aside class="right-panel">
+            <h3>System Vitals</h3>
+            
+            <div class="vital-card">
+                <div class="v-head"><i class="fas fa-brain"></i> Model Architecture</div>
+                <div class="v-stat">3-Layer MLP</div>
+                <div class="v-sub">Framework: PyTorch</div>
             </div>
 
-            <div class="input-group">
-                <label><i class="fas fa-tint"></i> Humidity: <span id="humVal">50</span>%</label>
-                <input type="range" id="humidity" min="0" max="100" value="50" oninput="document.getElementById('humVal').innerText=this.value">
+            <div class="vital-card">
+                <div class="v-head"><i class="fas fa-table"></i> Training Dataset</div>
+                <div class="v-stat">35,046 Rows</div>
+                <div class="v-sub">Source: Spanish Grid API</div>
             </div>
 
-            <div class="input-group">
-                <label><i class="fas fa-wind"></i> Wind Speed: <span id="windVal">5</span> m/s</label>
-                <input type="range" id="wind" min="0" max="50" value="5" oninput="document.getElementById('windVal').innerText=this.value">
+            <div class="vital-card">
+                <div class="v-head"><i class="fas fa-network-wired"></i> Backend Latency</div>
+                <div class="v-stat">~120ms</div>
+                <div class="v-sub">Protocol: Flask REST</div>
             </div>
+        </aside>
 
-            <button type="submit">GENERATE PREDICTION</button>
-        </form>
-
-        <div id="result"></div>
     </div>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
