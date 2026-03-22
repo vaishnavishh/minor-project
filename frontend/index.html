@@ -7,26 +7,33 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Sleek Modern SaaS Reset */
+        /* Modern Reset */
         body, html {
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #080c10; /* Ultra dark Lovable-style background */
+            background-color: #05080f; /* Even darker, richer background */
             color: #ffffff;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Ambient Background Glow */
-        .glow-circle {
+        /* Animated Ambient Glow */
+        .glow-orb {
             position: absolute;
-            width: 600px;
-            height: 600px;
+            width: 700px;
+            height: 700px;
             background: radial-gradient(circle, rgba(0,242,254,0.15) 0%, rgba(0,0,0,0) 70%);
-            top: -200px;
+            top: -250px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 0;
+            animation: breathe 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes breathe {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.8; }
+            100% { transform: translateX(-50%) scale(1.1); opacity: 1; }
         }
 
         /* Navbar */
@@ -43,23 +50,57 @@
             font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .logo span { color: #00f2fe; }
+        .logo i { color: #00f2fe; animation: spin 10s linear infinite; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        /* Status Badge */
+        .status-badge {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            color: #00ff88;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            animation: fadeInDown 1s ease-out;
+        }
+        .status-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #00ff88;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 100px 20px;
+            padding: 80px 20px;
             position: relative;
             z-index: 10;
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
             margin-bottom: 20px;
-            line-height: 1.2;
+            line-height: 1.1;
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .hero h1 .highlight {
@@ -73,25 +114,33 @@
             color: #8b949e;
             max-width: 600px;
             margin: 0 auto 40px auto;
+            animation: fadeInUp 1s ease-out 0.2s forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         /* The Launch Button */
         .launch-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
             text-decoration: none;
             background: linear-gradient(45deg, #00f2fe, #4facfe);
-            color: #080c10;
-            padding: 18px 40px;
-            border-radius: 30px;
+            color: #05080f;
+            padding: 18px 45px;
+            border-radius: 40px;
             font-size: 1.2rem;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3);
+            animation: fadeInUp 1s ease-out 0.4s forwards;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .launch-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 242, 254, 0.5);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 242, 254, 0.5);
         }
 
         /* Bento Box Feature Cards */
@@ -99,59 +148,90 @@
             display: flex;
             justify-content: center;
             gap: 30px;
-            padding: 50px 20px;
+            padding: 60px 20px;
             position: relative;
             z-index: 10;
             flex-wrap: wrap;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 30px;
-            width: 300px;
+            border-radius: 24px;
+            padding: 35px;
+            width: 320px;
             text-align: left;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .card:nth-child(1) { animation-delay: 0.6s; }
+        .card:nth-child(2) { animation-delay: 0.8s; }
+        .card:nth-child(3) { animation-delay: 1.0s; }
+
+        .card:hover { 
+            transform: translateY(-15px); 
+            border-color: rgba(0, 242, 254, 0.5);
+            box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+        }
+        
+        .card i { 
+            font-size: 2.5rem; 
+            color: #00f2fe; 
+            margin-bottom: 25px; 
+            display: inline-block;
             transition: transform 0.3s ease;
         }
 
-        .card:hover { transform: translateY(-10px); border-color: rgba(0, 242, 254, 0.3); }
-        .card i { font-size: 2rem; color: #00f2fe; margin-bottom: 20px; }
-        .card h3 { font-size: 1.2rem; margin-bottom: 10px; }
-        .card p { font-size: 0.9rem; color: #8b949e; line-height: 1.5; }
+        .card:hover i { transform: scale(1.2); }
+        .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #ffffff; }
+        .card p { font-size: 0.95rem; color: #8b949e; line-height: 1.6; }
+
+        /* Entrance Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
-    <div class="glow-circle"></div>
+    <div class="glow-orb"></div>
 
     <nav>
-        <div class="logo">Nex<span>Energy</span></div>
+        <div class="logo"><i class="fas fa-atom"></i> Nex<span>Energy</span></div>
+        <div class="status-badge"><div class="dot"></div> API Online</div>
     </nav>
 
     <section class="hero">
         <h1>Predict the Future of <br><span class="highlight">Renewable Power.</span></h1>
         <p>Harness the power of Deep Learning. Our PyTorch neural network analyzes real-time meteorological data to deliver high-precision solar generation forecasts.</p>
         
-        <a href="dashboard.html" class="launch-btn">Launch Workspace <i class="fas fa-arrow-right" style="margin-left: 10px;"></i></a>
+        <a href="dashboard.html" class="launch-btn">Launch Workspace <i class="fas fa-rocket"></i></a>
     </section>
 
     <section class="features">
         <div class="card">
             <i class="fas fa-brain"></i>
             <h3>PyTorch Architecture</h3>
-            <p>Powered by a 3-layer Multi-Layer Perceptron trained on 35,000+ hours of historical grid data.</p>
+            <p>Powered by a 3-layer Multi-Layer Perceptron trained on 35,000+ hours of historical Spanish grid data.</p>
         </div>
         <div class="card">
             <i class="fas fa-bolt"></i>
             <h3>Real-Time Inference</h3>
-            <p>Lightning-fast predictions connected to a decoupled Flask REST API hosted on Render.</p>
+            <p>Lightning-fast predictions connected to a decoupled Flask REST API hosted securely on Render.</p>
         </div>
         <div class="card">
             <i class="fas fa-chart-line"></i>
             <h3>Data-Driven Accuracy</h3>
-            <p>Utilizing Temperature, Humidity, and Wind Velocity matrixes to compute non-linear outputs.</p>
+            <p>Utilizing Temperature, Humidity, and Wind Velocity matrices to compute non-linear outputs instantly.</p>
         </div>
     </section>
 
