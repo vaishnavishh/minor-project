@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Energy Forecast Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="status-bar">
+            <span class="status-dot"></span> SYSTEM LIVE: RENDER-API-v1.0
+        </div>
+        
+        <h1>Energy Forecast</h1>
+
+        <form id="predictForm">
+            <div class="input-group">
+                <label><i class="fas fa-thermometer-half"></i> Temperature: <span id="tempVal">298</span>K</label>
+                <input type="range" id="temp" min="250" max="330" value="298" oninput="document.getElementById('tempVal').innerText=this.value">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-tint"></i> Humidity: <span id="humVal">50</span>%</label>
+                <input type="range" id="humidity" min="0" max="100" value="50" oninput="document.getElementById('humVal').innerText=this.value">
+            </div>
+
+            <div class="input-group">
+                <label><i class="fas fa-wind"></i> Wind Speed: <span id="windVal">5</span> m/s</label>
+                <input type="range" id="wind" min="0" max="50" value="5" oninput="document.getElementById('windVal').innerText=this.value">
+            </div>
+
+            <button type="submit">GENERATE PREDICTION</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
