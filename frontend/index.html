@@ -7,14 +7,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Modern Reset */
         body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #05080f; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; }
         
-        /* Animated Ambient Glow */
         .glow-orb { position: absolute; width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,242,254,0.1) 0%, rgba(0,0,0,0) 70%); top: -300px; left: 50%; transform: translateX(-50%); z-index: 0; animation: breathe 8s infinite alternate ease-in-out; pointer-events: none; }
         @keyframes breathe { 0% { transform: translateX(-50%) scale(1); opacity: 0.8; } 100% { transform: translateX(-50%) scale(1.1); opacity: 1; } }
 
-        /* Navbar */
         nav { padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(5, 8, 15, 0.8); backdrop-filter: blur(10px); }
         .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
         .logo span { color: #00f2fe; }
@@ -25,7 +22,6 @@
         .login-btn { background: transparent; border: 1px solid #00f2fe; color: #00f2fe; padding: 8px 24px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.3s; }
         .login-btn:hover { background: rgba(0, 242, 254, 0.1); box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
 
-        /* Hero Section */
         .hero { text-align: center; padding: 100px 20px 60px; position: relative; z-index: 10; }
         .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(30px); }
         .hero h1 .highlight { background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -33,7 +29,6 @@
         .launch-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; background: linear-gradient(45deg, #00f2fe, #4facfe); color: #05080f; padding: 18px 45px; border-radius: 40px; font-size: 1.2rem; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3); animation: fadeInUp 1s ease-out 0.4s forwards; opacity: 0; transform: translateY(30px); }
         .launch-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 40px rgba(0, 242, 254, 0.5); }
 
-        /* Features */
         .features { display: flex; justify-content: center; gap: 30px; padding: 60px 20px; position: relative; z-index: 10; flex-wrap: wrap; }
         .card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 35px; width: 300px; text-align: left; backdrop-filter: blur(15px); transition: 0.4s; }
         .card:hover { transform: translateY(-10px); border-color: rgba(0, 242, 254, 0.5); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15); }
@@ -41,7 +36,6 @@
         .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #ffffff; }
         .card p { font-size: 0.95rem; color: #8b949e; line-height: 1.6; }
 
-        /* Query Section */
         .query-section { max-width: 600px; margin: 80px auto; padding: 40px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; text-align: center; position: relative; z-index: 10; backdrop-filter: blur(10px); }
         .query-section h2 { margin-top: 0; font-size: 2rem; }
         .query-section input, .query-section textarea { width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); padding: 15px; margin-bottom: 15px; border-radius: 12px; color: white; font-family: 'Poppins', sans-serif; outline: none; transition: 0.3s; }
@@ -49,7 +43,6 @@
         .query-section button { width: 100%; padding: 15px; border: none; border-radius: 12px; background: #00f2fe; color: #000; font-weight: 700; cursor: pointer; transition: 0.3s; }
         .query-section button:hover { background: #4facfe; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
 
-        /* Login Modal (Hidden by default) */
         .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); z-index: 100; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
         .modal-overlay.active { display: flex; opacity: 1; }
         .login-box { background: #0b111e; border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 24px; padding: 40px; width: 350px; text-align: center; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(-20px); transition: 0.3s ease; }
@@ -59,7 +52,6 @@
         .login-box input { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px; margin-bottom: 15px; border-radius: 8px; color: white; }
         .login-box button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: linear-gradient(45deg, #00f2fe, #4facfe); color: #000; font-weight: bold; cursor: pointer; }
 
-        /* Floating Chatbot */
         .chatbot-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: linear-gradient(45deg, #00f2fe, #4facfe); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; color: #000; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 242, 254, 0.4); z-index: 99; transition: 0.3s; }
         .chatbot-btn:hover { transform: scale(1.1); }
         .chatbot-window { position: fixed; bottom: 100px; right: 30px; width: 320px; height: 400px; background: #0b111e; border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 20px; z-index: 99; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; }
@@ -114,10 +106,11 @@
         <div class="login-box">
             <span class="close-btn" onclick="toggleModal('loginModal')">&times;</span>
             <h2><i class="fas fa-lock" style="color:#00f2fe; margin-bottom:10px; display:block;"></i> Secure Portal</h2>
-            <form onsubmit="event.preventDefault(); alert('Demo Mode: Login Simulated. Redirecting to Workspace...'); window.location.href='dashboard.html';">
-                <input type="email" placeholder="Admin Email" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit">Authenticate Session</button>
+            <form id="realLoginForm">
+                <input type="email" id="loginEmail" placeholder="Email (admin@nexenergy.com)" required>
+                <input type="password" id="loginPassword" placeholder="Password (admin123)" required>
+                <button type="submit" id="authButton">Authenticate Session</button>
+                <div id="loginError" style="color: #ff4b2b; margin-top: 15px; font-size: 0.85rem; display: none;">❌ Invalid Credentials</div>
             </form>
         </div>
     </div>
@@ -139,7 +132,6 @@
     </div>
 
     <script>
-        // Modal Logic
         function toggleModal(id) {
             const modal = document.getElementById(id);
             if(modal.classList.contains('active')) {
@@ -151,13 +143,11 @@
             }
         }
 
-        // Contact Form Logic
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             document.getElementById('queryBox').innerHTML = '<h2><i class="fas fa-check-circle" style="color:#00ff88;"></i> Request Received</h2><p>Our engineering team will contact you within 24 hours regarding API access.</p>';
         });
 
-        // Chatbot Logic
         function toggleChat() {
             const chat = document.getElementById('chatWindow');
             if(chat.classList.contains('active')) {
@@ -176,17 +166,274 @@
 
             const chatBody = document.getElementById('chatBody');
             
-            // Add user message
             chatBody.innerHTML += `<div class="bubble user-bubble">${message}</div>`;
             input.value = '';
             chatBody.scrollTop = chatBody.scrollHeight;
 
-            // Simulate AI typing delay
             setTimeout(() => {
                 chatBody.innerHTML += `<div class="bubble bot-bubble">I am currently in Demo Mode. To see the actual PyTorch AI in action, please click "Launch Workspace" or login via the admin portal!</div>`;
                 chatBody.scrollTop = chatBody.scrollHeight;
             }, 1000);
         }
+
+        document.getElementById('realLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+            const btn = document.getElementById('authButton');
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('https://minor-project-ya5t.onrender.com/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Access Granted';
+                    btn.style.background = '#00ff88';
+                    btn.style.color = '#000';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                } else {
+                    btn.innerHTML = 'Authenticate Session';
+                    errorDiv.style.display = 'block';
+                    errorDiv.innerText = '❌ ' + data.message;
+                }
+            } catch (error) {
+                btn.innerHTML = 'Authenticate Session';
+                errorDiv.style.display = 'block';
+                errorDiv.innerText = '❌ Server is sleeping, try again in 30s.';
+            }
+        });
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexEnergy | AI Forecasting Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body, html { margin: 0; padding: 0; font-family: 'Poppins', sans-serif; background-color: #05080f; color: #ffffff; overflow-x: hidden; scroll-behavior: smooth; }
+        
+        .glow-orb { position: absolute; width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,242,254,0.1) 0%, rgba(0,0,0,0) 70%); top: -300px; left: 50%; transform: translateX(-50%); z-index: 0; animation: breathe 8s infinite alternate ease-in-out; pointer-events: none; }
+        @keyframes breathe { 0% { transform: translateX(-50%) scale(1); opacity: 0.8; } 100% { transform: translateX(-50%) scale(1.1); opacity: 1; } }
+
+        nav { padding: 25px 50px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 10; border-bottom: 1px solid rgba(255,255,255,0.05); background: rgba(5, 8, 15, 0.8); backdrop-filter: blur(10px); }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; gap: 10px; }
+        .logo span { color: #00f2fe; }
+        .logo i { color: #00f2fe; animation: spin 10s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .login-btn { background: transparent; border: 1px solid #00f2fe; color: #00f2fe; padding: 8px 24px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .login-btn:hover { background: rgba(0, 242, 254, 0.1); box-shadow: 0 0 15px rgba(0, 242, 254, 0.3); }
+
+        .hero { text-align: center; padding: 100px 20px 60px; position: relative; z-index: 10; }
+        .hero h1 { font-size: 4.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; animation: fadeInUp 1s ease-out forwards; opacity: 0; transform: translateY(30px); }
+        .hero h1 .highlight { background: linear-gradient(to right, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.2rem; color: #8b949e; max-width: 600px; margin: 0 auto 40px auto; animation: fadeInUp 1s ease-out 0.2s forwards; opacity: 0; transform: translateY(30px); }
+        .launch-btn { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; background: linear-gradient(45deg, #00f2fe, #4facfe); color: #05080f; padding: 18px 45px; border-radius: 40px; font-size: 1.2rem; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 242, 254, 0.3); animation: fadeInUp 1s ease-out 0.4s forwards; opacity: 0; transform: translateY(30px); }
+        .launch-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 40px rgba(0, 242, 254, 0.5); }
+
+        .features { display: flex; justify-content: center; gap: 30px; padding: 60px 20px; position: relative; z-index: 10; flex-wrap: wrap; }
+        .card { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; padding: 35px; width: 300px; text-align: left; backdrop-filter: blur(15px); transition: 0.4s; }
+        .card:hover { transform: translateY(-10px); border-color: rgba(0, 242, 254, 0.5); box-shadow: 0 15px 35px rgba(0, 242, 254, 0.15); }
+        .card i { font-size: 2.5rem; color: #00f2fe; margin-bottom: 25px; }
+        .card h3 { font-size: 1.3rem; margin-bottom: 12px; color: #ffffff; }
+        .card p { font-size: 0.95rem; color: #8b949e; line-height: 1.6; }
+
+        .query-section { max-width: 600px; margin: 80px auto; padding: 40px; background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px; text-align: center; position: relative; z-index: 10; backdrop-filter: blur(10px); }
+        .query-section h2 { margin-top: 0; font-size: 2rem; }
+        .query-section input, .query-section textarea { width: 100%; box-sizing: border-box; background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1); padding: 15px; margin-bottom: 15px; border-radius: 12px; color: white; font-family: 'Poppins', sans-serif; outline: none; transition: 0.3s; }
+        .query-section input:focus, .query-section textarea:focus { border-color: #00f2fe; }
+        .query-section button { width: 100%; padding: 15px; border: none; border-radius: 12px; background: #00f2fe; color: #000; font-weight: 700; cursor: pointer; transition: 0.3s; }
+        .query-section button:hover { background: #4facfe; box-shadow: 0 0 20px rgba(0, 242, 254, 0.4); }
+
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); z-index: 100; display: none; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .modal-overlay.active { display: flex; opacity: 1; }
+        .login-box { background: #0b111e; border: 1px solid rgba(0, 242, 254, 0.3); border-radius: 24px; padding: 40px; width: 350px; text-align: center; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.5); transform: translateY(-20px); transition: 0.3s ease; }
+        .modal-overlay.active .login-box { transform: translateY(0); }
+        .close-btn { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; color: #8b949e; cursor: pointer; }
+        .login-box h2 { margin-top: 0; margin-bottom: 25px; }
+        .login-box input { width: 100%; box-sizing: border-box; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 12px; margin-bottom: 15px; border-radius: 8px; color: white; }
+        .login-box button { width: 100%; padding: 12px; border: none; border-radius: 8px; background: linear-gradient(45deg, #00f2fe, #4facfe); color: #000; font-weight: bold; cursor: pointer; }
+
+        .chatbot-btn { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: linear-gradient(45deg, #00f2fe, #4facfe); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.8rem; color: #000; cursor: pointer; box-shadow: 0 10px 20px rgba(0, 242, 254, 0.4); z-index: 99; transition: 0.3s; }
+        .chatbot-btn:hover { transform: scale(1.1); }
+        .chatbot-window { position: fixed; bottom: 100px; right: 30px; width: 320px; height: 400px; background: #0b111e; border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 20px; z-index: 99; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.5); opacity: 0; transition: opacity 0.3s; }
+        .chatbot-window.active { display: flex; opacity: 1; }
+        .chat-header { background: rgba(0, 242, 254, 0.1); padding: 15px; font-weight: bold; display: flex; justify-content: space-between; border-bottom: 1px solid rgba(0,242,254,0.1); }
+        .chat-body { flex: 1; padding: 15px; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
+        .bubble { max-width: 80%; padding: 10px 15px; border-radius: 15px; }
+        .bot-bubble { background: rgba(255,255,255,0.05); align-self: flex-start; border-bottom-left-radius: 0; }
+        .user-bubble { background: #00f2fe; color: #000; align-self: flex-end; border-bottom-right-radius: 0; }
+        .chat-footer { padding: 10px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; gap: 10px; }
+        .chat-footer input { flex: 1; background: transparent; border: none; color: white; outline: none; padding: 5px; }
+        .chat-footer button { background: transparent; border: none; color: #00f2fe; font-size: 1.2rem; cursor: pointer; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="glow-orb"></div>
+
+    <nav>
+        <div class="logo"><i class="fas fa-atom"></i> Nex<span>Energy</span></div>
+        <div class="nav-links">
+            <button class="login-btn" onclick="toggleModal('loginModal')"><i class="fas fa-user"></i> Client Login</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Predict the Future of <br><span class="highlight">Renewable Power.</span></h1>
+        <p>Harness the power of Deep Learning. Our PyTorch neural network analyzes real-time meteorological data to deliver high-precision solar generation forecasts.</p>
+        <a href="dashboard.html" class="launch-btn">Launch Workspace <i class="fas fa-rocket"></i></a>
+    </section>
+
+    <section class="features">
+        <div class="card"><i class="fas fa-brain"></i><h3>PyTorch Architecture</h3><p>Trained on 35,000+ hours of historical grid data.</p></div>
+        <div class="card"><i class="fas fa-bolt"></i><h3>Real-Time Inference</h3><p>Lightning-fast predictions connected to a REST API.</p></div>
+        <div class="card"><i class="fas fa-chart-line"></i><h3>Data Accuracy</h3><p>Utilizing Temperature, Humidity, and Wind matrices.</p></div>
+    </section>
+
+    <section class="query-section" id="queryBox">
+        <h2>Request API Access</h2>
+        <p style="color:#8b949e; margin-bottom: 25px;">Interested in deploying our forecasting model on your grid? Send a query below.</p>
+        <form id="contactForm">
+            <input type="text" placeholder="Company Name" required>
+            <input type="email" placeholder="Business Email" required>
+            <textarea rows="4" placeholder="How can we help you?" required></textarea>
+            <button type="submit">Submit Request</button>
+        </form>
+    </section>
+
+    <div class="modal-overlay" id="loginModal">
+        <div class="login-box">
+            <span class="close-btn" onclick="toggleModal('loginModal')">&times;</span>
+            <h2><i class="fas fa-lock" style="color:#00f2fe; margin-bottom:10px; display:block;"></i> Secure Portal</h2>
+            <form id="realLoginForm">
+                <input type="email" id="loginEmail" placeholder="Email (admin@nexenergy.com)" required>
+                <input type="password" id="loginPassword" placeholder="Password (admin123)" required>
+                <button type="submit" id="authButton">Authenticate Session</button>
+                <div id="loginError" style="color: #ff4b2b; margin-top: 15px; font-size: 0.85rem; display: none;">❌ Invalid Credentials</div>
+            </form>
+        </div>
+    </div>
+
+    <div class="chatbot-btn" onclick="toggleChat()"><i class="fas fa-comment-dots"></i></div>
+    
+    <div class="chatbot-window" id="chatWindow">
+        <div class="chat-header">
+            <span><i class="fas fa-robot"></i> NexBot AI</span>
+            <i class="fas fa-times" style="cursor:pointer;" onclick="toggleChat()"></i>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <div class="bubble bot-bubble">Hello! I am the NexEnergy AI assistant. How can I help you with solar forecasting today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Ask about our model..." onkeypress="if(event.key === 'Enter') sendChat()">
+            <button onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script>
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            if(modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                setTimeout(() => modal.style.display = 'none', 300);
+            } else {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('active'), 10);
+            }
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('queryBox').innerHTML = '<h2><i class="fas fa-check-circle" style="color:#00ff88;"></i> Request Received</h2><p>Our engineering team will contact you within 24 hours regarding API access.</p>';
+        });
+
+        function toggleChat() {
+            const chat = document.getElementById('chatWindow');
+            if(chat.classList.contains('active')) {
+                chat.classList.remove('active');
+                setTimeout(() => chat.style.display = 'none', 300);
+            } else {
+                chat.style.display = 'flex';
+                setTimeout(() => chat.classList.add('active'), 10);
+            }
+        }
+
+        function sendChat() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if(!message) return;
+
+            const chatBody = document.getElementById('chatBody');
+            
+            chatBody.innerHTML += `<div class="bubble user-bubble">${message}</div>`;
+            input.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            setTimeout(() => {
+                chatBody.innerHTML += `<div class="bubble bot-bubble">I am currently in Demo Mode. To see the actual PyTorch AI in action, please click "Launch Workspace" or login via the admin portal!</div>`;
+                chatBody.scrollTop = chatBody.scrollHeight;
+            }, 1000);
+        }
+
+        document.getElementById('realLoginForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            const errorDiv = document.getElementById('loginError');
+            const btn = document.getElementById('authButton');
+
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Verifying...';
+            errorDiv.style.display = 'none';
+
+            try {
+                const response = await fetch('https://minor-project-ya5t.onrender.com/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email, password })
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Access Granted';
+                    btn.style.background = '#00ff88';
+                    btn.style.color = '#000';
+                    
+                    setTimeout(() => {
+                        window.location.href = 'dashboard.html';
+                    }, 1000);
+                } else {
+                    btn.innerHTML = 'Authenticate Session';
+                    errorDiv.style.display = 'block';
+                    errorDiv.innerText = '❌ ' + data.message;
+                }
+            } catch (error) {
+                btn.innerHTML = 'Authenticate Session';
+                errorDiv.style.display = 'block';
+                errorDiv.innerText = '❌ Server is sleeping, try again in 30s.';
+            }
+        });
     </script>
 </body>
 </html>

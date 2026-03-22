@@ -34,5 +34,16 @@ def predict():
 
     return jsonify({"predicted_usage": prediction})
 
+@app.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    if email == "admin@nexenergy.com" and password == "admin123":
+        return jsonify({"success": True, "message": "Authentication successful"}), 200
+    else:
+        return jsonify({"success": False, "message": "Invalid email or password"}), 401
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
