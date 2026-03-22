@@ -91,16 +91,15 @@
         <div class="card"><i class="fas fa-chart-line"></i><h3>Data Accuracy</h3><p>Utilizing Temperature, Humidity, and Wind matrices.</p></div>
     </section>
 
-    <section class="query-section" id="queryBox">
-        <h2>Request API Access</h2>
-        <p style="color:#8b949e; margin-bottom: 25px;">Interested in deploying our forecasting model on your grid? Send a query below.</p>
-        <form id="contactForm">
-            <input type="text" placeholder="Company Name" required>
-            <input type="email" placeholder="Business Email" required>
-            <textarea rows="4" placeholder="How can we help you?" required></textarea>
+    <form action="https://formsubmit.co/hheeruu786@gmail.com" method="POST">
+            <input type="text" name="Company Name" placeholder="Company Name" required>
+            <input type="email" name="Email Address" placeholder="Business Email" required>
+            <textarea name="Message" rows="4" placeholder="How can we help you?" required></textarea>
+            
+            <input type="hidden" name="_captcha" value="false">
+            
             <button type="submit">Submit Request</button>
-        </form>
-    </section>
+    </form>
 
     <div class="modal-overlay" id="loginModal">
         <div class="login-box">
@@ -143,10 +142,7 @@
             }
         }
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            document.getElementById('queryBox').innerHTML = '<h2><i class="fas fa-check-circle" style="color:#00ff88;"></i> Request Received</h2><p>Our engineering team will contact you within 24 hours regarding API access.</p>';
-        });
+       
 
         function toggleChat() {
             const chat = document.getElementById('chatWindow');
