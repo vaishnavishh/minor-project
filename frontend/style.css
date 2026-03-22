@@ -14,14 +14,14 @@ body {
     overflow: hidden;
 }
 
-/* --- THE 3-COLUMN GRID LAYOUT --- */
+
 .dashboard-layout {
     display: grid;
     grid-template-columns: 260px 1fr 300px;
     height: 100vh;
 }
 
-/* --- LEFT SIDEBAR --- */
+
 .sidebar {
     background: rgba(255, 255, 255, 0.02);
     border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -69,7 +69,7 @@ body {
 .user-info .name { display: block; font-weight: 600; font-size: 0.9rem; }
 .user-info .role { display: block; font-size: 0.75rem; color: #8b949e; }
 
-/* --- CENTER CONTENT --- */
+
 .main-content {
     display: flex;
     flex-direction: column;
@@ -94,7 +94,7 @@ body {
     align-items: center;
 }
 
-/* --- RIGHT PANEL (VITALS) --- */
+
 .right-panel {
     background: rgba(255, 255, 255, 0.02);
     border-left: 1px solid rgba(255, 255, 255, 0.05);
@@ -114,7 +114,7 @@ body {
 .v-stat { font-size: 1.5rem; font-weight: 800; margin-bottom: 5px; }
 .v-sub { font-size: 0.8rem; color: #8b949e; }
 
-/* --- YOUR ORIGINAL GLASS CONTAINER (Untouched) --- */
+
 .container {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(15px);
